@@ -4,6 +4,9 @@ import Header from '/src/Header'
 import Home from '/src/Home'
 import Sidebar from '/src/Sidebar'
 
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+
 function App() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false)
 
@@ -15,10 +18,11 @@ function App() {
     <div className='grid-container'>
       <Header OpenSidebar={OpenSidebar}/>
       <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
-      <Home />
+      <Home/>
     </div>
+          
   )
 }
 
-export default App
-
+export default withAuthenticator(App);
+// export default  App
